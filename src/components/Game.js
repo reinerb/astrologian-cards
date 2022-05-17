@@ -3,6 +3,7 @@ import Card from "./Card";
 import Party from "./Party";
 import ScoreTracker from "./ScoreTracker";
 import { choose, cards, jobs } from "../functions/helpers";
+import "../styles/Game.css";
 
 class Game extends Component {
   static defaultProps = {
@@ -47,10 +48,14 @@ class Game extends Component {
         ? this.createParty(1, 1, 2)
         : this.createParty(2, 2, 4); // Can also technically be 1, 2, 5 - for later
     return (
-      <div>
-        <Card name={this.state.card.name} src={this.state.card.icon} />
-        <Party members={party} />
-        <ScoreTracker />
+      <div className="Game">
+        <div className="Game-play-area">
+          <Card name={this.state.card.name} src={this.state.card.icon} />
+          <Party members={party} />
+        </div>
+        <div className="Game-score-area">
+          <ScoreTracker />
+        </div>
       </div>
     );
   }
