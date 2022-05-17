@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Card from "./Card";
-import Party from "./Party";
+import PartyMember from "./PartyMember";
 import ScoreTracker from "./ScoreTracker";
 import PartySizeSwitch from "./PartySizeSwitch";
 import { choose, cards, jobs } from "../functions/helpers";
+import { v4 as uuid } from "uuid";
 import "../styles/Game.css";
 
 class Game extends Component {
@@ -63,15 +64,22 @@ class Game extends Component {
   }
 
   render() {
+    const party = this.state.party.map((e) => (
+      <PartyMember key={uuid()} name={e.name} icon={e.icon} abbr={e.abbr} />
+    ));
+
     return (
       <div className="Game">
         <div className="Game-play-area">
           <Card name={this.state.card.name} src={this.state.card.icon} />
-          <Party members={this.state.party} />
+          <div className="Game-party">{party}</div>
         </div>
         <div className="Game-score-area">
           <ScoreTracker />
-          <PartySizeSwitch toggle={this.togglePartySize} />
+          <PartySizeSwitch
+            lightParty={this.state.lightParty}
+            toggle={this.togglePartySize}
+          />
         </div>
       </div>
     );
