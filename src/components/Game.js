@@ -19,11 +19,37 @@ class Game extends Component {
     };
   }
 
+  // Select the given number of tanks, healers, and DPS from props
+  createParty(nTanks, nHealers, nDPS) {
+    let party = [];
+
+    for (let i = 0; i < nTanks; i++) {
+      party.push(choose(this.props.jobs.tanks));
+    }
+
+    party.push(this.props.jobs.healers[2]);
+    if (nHealers > 1) {
+      for (let i = 1; i < nHealers; i++) {
+        party.push(choose(this.props.jobs.healers));
+      }
+    }
+
+    for (let i = 0; i < nDPS; i++) {
+      party.push(choose(this.props.jobs.dps));
+    }
+
+    return party;
+  }
+
   render() {
+    let party =
+      this.props.partySize === 4
+        ? this.createParty(1, 1, 2)
+        : this.createParty(2, 2, 4); // Can also technically be 1, 2, 5 - for later
     return (
       <div>
-        <Card />
-        <Party size={this.props.partySize} />
+        <Card name={this.state.card.name} src={this.state.card.icon} />
+        <Party members={party} />
         <ScoreTracker />
       </div>
     );
