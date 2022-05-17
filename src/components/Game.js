@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import Card from "./Card";
 import Party from "./Party";
 import ScoreTracker from "./ScoreTracker";
+import PartySizeSwitch from "./PartySizeSwitch";
 import { choose, cards, jobs } from "../functions/helpers";
 import "../styles/Game.css";
 
 class Game extends Component {
   static defaultProps = {
-    partySize: 4,
     cards: cards,
     jobs: jobs,
   };
@@ -17,7 +17,11 @@ class Game extends Component {
 
     this.state = {
       card: choose(this.props.cards),
+      lightParty: true,
+      party: this.createParty(1, 1, 2),
     };
+
+    this.togglePartySize = this.togglePartySize.bind(this);
   }
 
   // Select the given number of tanks, healers, and DPS from props
@@ -42,19 +46,32 @@ class Game extends Component {
     return party;
   }
 
+  togglePartySize() {
+    if (this.state.lightParty) {
+      this.setState({
+        card: choose(this.props.cards),
+        lightParty: false,
+        party: this.createParty(2, 2, 4),
+      });
+    } else {
+      this.setState({
+        card: choose(this.props.cards),
+        lightParty: true,
+        party: this.createParty(1, 1, 2),
+      });
+    }
+  }
+
   render() {
-    let party =
-      this.props.partySize === 4
-        ? this.createParty(1, 1, 2)
-        : this.createParty(2, 2, 4); // Can also technically be 1, 2, 5 - for later
     return (
       <div className="Game">
         <div className="Game-play-area">
           <Card name={this.state.card.name} src={this.state.card.icon} />
-          <Party members={party} />
+          <Party members={this.state.party} />
         </div>
         <div className="Game-score-area">
           <ScoreTracker />
+          <PartySizeSwitch toggle={this.togglePartySize} />
         </div>
       </div>
     );

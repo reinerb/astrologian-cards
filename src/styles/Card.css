@@ -1,2 +1,16 @@
 .Card {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.Card-icon {
+  max-width: 10rem;
+}
+
+.Card-name {
+  font-size: 2rem;
+  font-weight: 700;
 }

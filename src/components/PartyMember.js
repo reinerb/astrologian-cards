@@ -1,6 +1,17 @@
 import React, { Component } from "react";
+import "../styles/PartyMember.css";
 
 class PartyMember extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    console.log(`${this.props.name} clicked`);
+  }
+
   render() {
     return (
       <div className="PartyMember">
@@ -8,8 +19,9 @@ class PartyMember extends Component {
           className="PartyMember-icon"
           src={this.props.icon}
           alt={this.props.name}
+          onClick={this.handleClick}
         />
-        <h3 className="Partymember-abbr">{this.props.abbr}</h3>
+        <h3 className="PartyMember-abbr">{this.props.abbr}</h3>
       </div>
     );
   }
