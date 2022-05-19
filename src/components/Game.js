@@ -3,6 +3,7 @@ import Card from "./Card";
 import PartyMember from "./PartyMember";
 import ScoreTracker from "./ScoreTracker";
 import PartySizeSwitch from "./PartySizeSwitch";
+import Timer from "./Timer";
 import { choose, cards, jobs } from "../functions/helpers";
 import { v4 as uuid } from "uuid";
 import "../styles/Game.css";
@@ -23,6 +24,7 @@ class Game extends Component {
       round: 0,
       score: 0,
       guessing: false,
+      timeToGuess: 0,
     };
 
     this.togglePartySize = this.togglePartySize.bind(this);
@@ -160,6 +162,7 @@ class Game extends Component {
             <Card name={this.state.card.name} src={this.state.card.icon} />
             <div className="Game-party">{party}</div>
           </div>
+          <Timer time={3} />
         </div>
         <div className="Game-score-area">
           <div className="Game-description">
