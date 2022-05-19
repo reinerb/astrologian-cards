@@ -1,0 +1,20 @@
+.AverageTimeTracker {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.AverageTimeTracker-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.AverageTimeTracker-value {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.AverageTimeTracker-value.over {
+  color: rgb(250, 74, 74);
+}

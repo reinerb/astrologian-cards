@@ -1,10 +1,16 @@
 import React, { Component } from "react";
-import "../styles/Timer.css";
+import "../styles/AverageTimeTracker.css";
 
-class Timer extends Component {
+class AverageTimeTracker extends Component {
   static defaultProps = {
     gcd: 2.5,
   };
+
+  constructor(props) {
+    super(props);
+
+    this.displayTime = this.displayTime.bind(this);
+  }
 
   // Displays the time as s.ms, rounded to 2 decimals
   displayTime() {
@@ -18,10 +24,10 @@ class Timer extends Component {
 
   render() {
     return (
-      <div className="Timer">
-        <h2 className="Timer-title">Time</h2>
+      <div className="AverageTimeTracker">
+        <h2 className="AverageTimeTracker-title">Average Time</h2>
         <div
-          className={`Timer-value ${
+          className={`AverageTimeTracker-value ${
             this.props.time > this.props.gcd * 1000 ? "over" : ""
           }`}
         >
@@ -32,4 +38,4 @@ class Timer extends Component {
   }
 }
 
-export default Timer;
+export default AverageTimeTracker;

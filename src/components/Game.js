@@ -5,6 +5,7 @@ import ScoreTracker from "./ScoreTracker";
 import PartySizeSwitch from "./PartySizeSwitch";
 import Timer from "./Timer";
 import StartButton from "./StartButton";
+import AverageTimeTracker from "./AverageTimeTracker";
 import { choose, cards, jobs } from "../functions/helpers";
 import { v4 as uuid } from "uuid";
 import "../styles/Game.css";
@@ -28,6 +29,7 @@ class Game extends Component {
       timeToGuess: 0,
       timing: false,
       started: false,
+      averageTimeToGuess: 0,
     };
 
     this.togglePartySize = this.togglePartySize.bind(this);
@@ -156,6 +158,9 @@ class Game extends Component {
     let correctnessArr = [...this.state.party];
     let scoreUpdate = this.state.score;
     let roundUpdate = this.state.round + 1;
+    let newAvg =
+      this.state.averageTimeToGuess +
+      (this.state.timeToGuess - this.state.averageTimeToGuess) / roundUpdate;
 
     for (let i = 0; i < correctnessArr.length; i++) {
       if (correctnessArr[i].id === id && this.isRoleCorrect(role)) {
@@ -174,6 +179,7 @@ class Game extends Component {
       round: roundUpdate,
       guessing: true,
       timing: false,
+      averageTimeToGuess: newAvg,
     });
 
     setTimeout(this.generate, 1500);
@@ -221,7 +227,10 @@ class Game extends Component {
               party.
             </p>
           </div>
-          <ScoreTracker score={this.state.score} round={this.state.round} />
+          <div className="Game-scores">
+            <ScoreTracker score={this.state.score} round={this.state.round} />
+            <AverageTimeTracker time={this.state.averageTimeToGuess} />
+          </div>
           <PartySizeSwitch
             lightParty={this.state.lightParty}
             toggle={this.togglePartySize}

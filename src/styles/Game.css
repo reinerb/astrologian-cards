@@ -53,3 +53,8 @@
   flex-direction: column;
   gap: 0.5em;
 }
+
+.Game-scores {
+  display: flex;
+  gap: 3rem;
+}
