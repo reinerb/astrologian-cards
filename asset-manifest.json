@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/%7Bastrologian-cards/static/css/main.8078cf31.css",
+    "main.js": "/%7Bastrologian-cards/static/js/main.7a686e99.js",
+    "static/media/war.png": "/%7Bastrologian-cards/static/media/war.34b7fd3ff2f08a02fe81.png",
+    "static/media/sam.png": "/%7Bastrologian-cards/static/media/sam.39fb69b0839e18439391.png",
+    "static/media/gnb.png": "/%7Bastrologian-cards/static/media/gnb.5086d22c6e30fb783c22.png",
+    "static/media/pld.png": "/%7Bastrologian-cards/static/media/pld.5c3b09b4f1eb22e29a7f.png",
+    "static/media/mnk.png": "/%7Bastrologian-cards/static/media/mnk.85b1bbda1c0b59258dd8.png",
+    "static/media/drk.png": "/%7Bastrologian-cards/static/media/drk.afb002b7f085760fc891.png",
+    "static/media/blm.png": "/%7Bastrologian-cards/static/media/blm.007ed727f19a63e84bac.png",
+    "static/media/nin.png": "/%7Bastrologian-cards/static/media/nin.f5f4ed85cd4e55b1b3f9.png",
+    "static/media/mch.png": "/%7Bastrologian-cards/static/media/mch.300eb626bbf989028453.png",
+    "static/media/sge.png": "/%7Bastrologian-cards/static/media/sge.54f3c2c112c803c0011e.png",
+    "static/media/dnc.png": "/%7Bastrologian-cards/static/media/dnc.df46cbe3e6f3274f9660.png",
+    "static/media/smn.png": "/%7Bastrologian-cards/static/media/smn.331752da0e4962257022.png",
+    "static/media/brd.png": "/%7Bastrologian-cards/static/media/brd.f688845a603cbab68228.png",
+    "static/media/sch.png": "/%7Bastrologian-cards/static/media/sch.02c73e9cd0323c9eb938.png",
+    "static/media/drg.png": "/%7Bastrologian-cards/static/media/drg.f57163652fea488591f9.png",
+    "static/media/rpr.png": "/%7Bastrologian-cards/static/media/rpr.48a8b91fcf80441d19a2.png",
+    "static/media/ast.png": "/%7Bastrologian-cards/static/media/ast.6dbe6adb167f52af3238.png",
+    "static/media/rdm.png": "/%7Bastrologian-cards/static/media/rdm.f65b33c602fe4f567a36.png",
+    "static/media/whm.png": "/%7Bastrologian-cards/static/media/whm.b086c2f777bef6f4ad6f.png",
+    "static/media/arrow.png": "/%7Bastrologian-cards/static/media/arrow.eac6e05c100821ff0abb.png",
+    "static/media/spear.png": "/%7Bastrologian-cards/static/media/spear.74ace7daec46d63144f2.png",
+    "static/media/ewer.png": "/%7Bastrologian-cards/static/media/ewer.586901566756e8d801f0.png",
+    "static/media/spire.png": "/%7Bastrologian-cards/static/media/spire.556df61a670d378769af.png",
+    "static/media/balance.png": "/%7Bastrologian-cards/static/media/balance.079de13c343926dac8b0.png",
+    "static/media/bole.png": "/%7Bastrologian-cards/static/media/bole.49ee02ccc469e3f9dbd1.png",
+    "index.html": "/%7Bastrologian-cards/index.html",
+    "main.8078cf31.css.map": "/%7Bastrologian-cards/static/css/main.8078cf31.css.map",
+    "main.7a686e99.js.map": "/%7Bastrologian-cards/static/js/main.7a686e99.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8078cf31.css",
+    "static/js/main.7a686e99.js"
+  ]
+}
