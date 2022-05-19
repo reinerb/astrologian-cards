@@ -8,7 +8,7 @@ class Timer extends Component {
 
   // Displays the time as s.ms, rounded to 2 decimals
   displayTime() {
-    return Math.floor(this.props.time / 10) / 100;
+    return (Math.floor(this.props.time / 10) / 100).toString();
   }
 
   render() {
@@ -20,7 +20,7 @@ class Timer extends Component {
             this.props.time > this.props.gcd * 1000 ? "over" : ""
           }`}
         >
-          {`${this.displayTime().toString().padEnd(4, 0)}s`}
+          {`${this.displayTime().padEnd(4, 0)}s`}
         </div>
       </div>
     );
