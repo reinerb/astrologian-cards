@@ -16,3 +16,15 @@
 .PartyMember:hover .PartyMember-icon {
   filter: drop-shadow(0 0 0.5rem hsl(60, 100%, 50%));
 }
+
+.PartyMember-icon.correct {
+  filter: drop-shadow(0 0 0.5rem hsl(120, 100%, 35%));
+}
+
+.PartyMember-icon.also-correct {
+  filter: drop-shadow(0 0 0.5rem hsl(180, 100%, 50%));
+}
+
+.PartyMember-icon.incorrect {
+  filter: drop-shadow(0 0 0.5rem hsl(0, 100%, 43%));
+}
