@@ -186,8 +186,6 @@ class Game extends Component {
   }
 
   render() {
-    const mainDisplay = this.state.started ? "" : "";
-
     const party = this.state.party.map((e) => (
       <PartyMember
         key={e.id}
