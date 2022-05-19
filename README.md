@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+The project site is available for view [here](https://reinerb.github.io/astrologian-cards/).
+
 ## Purpose
 
 An application intended to teach new players of the Astrologian job in Final Fantasy XIV.
