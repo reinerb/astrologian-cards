@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Purpose
+
+An application intended to teach new players of the Astrologian job in Final Fantasy XIV.
+
+To play, click one of the job icons below the presented card. If it is correct for the given card, your score will increase and it will be highlighted with a green drop shadow. If it is wrong, it will be highlighted with red. Other correct guesses are highlighted in blue.
+
+## Installation
+
+Download the repository, change to the directory and run `npm install`.
+
 ## Credits
 
 AST card images from [SaltedXIV](https://saltedxiv.com/ast/ast-opener).
