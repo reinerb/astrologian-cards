@@ -1,0 +1,15 @@
+.StartButton-btn {
+  cursor: pointer;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-family: inherit;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.StartButton-btn:hover {
+  background-color: white;
+  color: #24282b;
+}

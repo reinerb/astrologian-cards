@@ -4,6 +4,7 @@ import PartyMember from "./PartyMember";
 import ScoreTracker from "./ScoreTracker";
 import PartySizeSwitch from "./PartySizeSwitch";
 import Timer from "./Timer";
+import StartButton from "./StartButton";
 import { choose, cards, jobs } from "../functions/helpers";
 import { v4 as uuid } from "uuid";
 import "../styles/Game.css";
@@ -26,6 +27,7 @@ class Game extends Component {
       guessing: false,
       timeToGuess: 0,
       timing: false,
+      started: false,
     };
 
     this.togglePartySize = this.togglePartySize.bind(this);
@@ -35,6 +37,16 @@ class Game extends Component {
     this.startTimer = this.startTimer.bind(this);
     this.stopTimer = this.stopTimer.bind(this);
     this.tick = this.tick.bind(this);
+    this.startGame = this.startGame.bind(this);
+  }
+
+  // Starts the game
+  startGame() {
+    this.setState({
+      started: true,
+      timeToGuess: 0,
+    });
+    this.startTimer();
   }
 
   // Select the given number of tanks, healers, and DPS from props
@@ -168,6 +180,8 @@ class Game extends Component {
   }
 
   render() {
+    const mainDisplay = this.state.started ? "" : "";
+
     const party = this.state.party.map((e) => (
       <PartyMember
         key={e.id}
@@ -186,11 +200,14 @@ class Game extends Component {
       <div className="Game">
         <div className="Game-play-area">
           <h1 className="Game-title">AST Card Quiz</h1>
-          <div className="Game-status">
-            <Card name={this.state.card.name} src={this.state.card.icon} />
-            <div className="Game-party">{party}</div>
-          </div>
-          <Timer time={this.state.timeToGuess} />
+          {!this.state.started && <StartButton start={this.startGame} />}
+          {this.state.started && (
+            <div className="Game-status">
+              <Card name={this.state.card.name} src={this.state.card.icon} />
+              <div className="Game-party">{party}</div>
+            </div>
+          )}
+          {this.state.started && <Timer time={this.state.timeToGuess} />}
         </div>
         <div className="Game-score-area">
           <div className="Game-description">
@@ -212,10 +229,6 @@ class Game extends Component {
         </div>
       </div>
     );
-  }
-
-  componentDidMount() {
-    this.startTimer();
   }
 
   componentWillUnmount() {
