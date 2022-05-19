@@ -15,7 +15,9 @@ class PartySizeSwitch extends Component {
   render() {
     return (
       <div className="PartySizeSwitch">
-        <button onClick={this.handleClick}>Toggle Party Size</button>
+        <button className="PartySizeSwitch-btn" onClick={this.handleClick}>
+          {`${this.props.lightParty ? "Full Party" : "Light Party"}`}
+        </button>
       </div>
     );
   }

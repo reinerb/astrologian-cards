@@ -2,26 +2,54 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 4fr 1fr;
-  place-items: center;
 }
 
 .Game-play-area {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
   background-color: #24282b;
 }
 
+.Game-title {
+  position: absolute;
+  top: 1em;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.Game-status {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.Game-party {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .Game-score-area {
-  width: 100%;
-  height: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #0e0e0e;
+}
+
+.Game-description {
+  font-size: 1.125rem;
+  position: absolute;
+  text-align: center;
+  margin-inline: 2em;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
 }

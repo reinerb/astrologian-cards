@@ -13,8 +13,12 @@
   aspect-ratio: 1;
 }
 
-.PartyMember:hover .PartyMember-icon {
+.PartyMember:hover .PartyMember-icon:not(.guessing) {
   filter: drop-shadow(0 0 0.5rem hsl(60, 100%, 50%));
+}
+
+.PartyMember:hover .PartyMember-icon.guessing {
+  cursor: default;
 }
 
 .PartyMember-icon.correct {

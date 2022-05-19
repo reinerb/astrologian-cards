@@ -1,0 +1,16 @@
+.ScoreTracker {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.ScoreTracker-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.ScoreTracker-scoreboard {
+  font-size: 3rem;
+  font-weight: 700;
+}

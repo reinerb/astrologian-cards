@@ -8,18 +8,20 @@ class PartyMember extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    console.log(`${this.props.name} clicked`);
+  handleClick(e) {
+    this.props.check(this.props.id, this.props.role);
   }
 
   render() {
+    console.log(this.props.guessing);
+    let guessingClass = this.props.guessing ? "guessing" : "";
+
     return (
-      <div className="PartyMember">
+      <div className="PartyMember" onClick={this.handleClick}>
         <img
-          className="PartyMember-icon"
+          className={`PartyMember-icon ${this.props.correctness} ${guessingClass}`}
           src={this.props.icon}
           alt={this.props.name}
-          onClick={this.handleClick}
         />
         <h3 className="PartyMember-abbr">{this.props.abbr}</h3>
       </div>
