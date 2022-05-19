@@ -13,7 +13,6 @@ class PartyMember extends Component {
   }
 
   render() {
-    console.log(this.props.guessing);
     let guessingClass = this.props.guessing ? "guessing" : "";
 
     return (

@@ -25,12 +25,16 @@ class Game extends Component {
       score: 0,
       guessing: false,
       timeToGuess: 0,
+      timing: false,
     };
 
     this.togglePartySize = this.togglePartySize.bind(this);
     this.isRoleCorrect = this.isRoleCorrect.bind(this);
     this.update = this.update.bind(this);
     this.generate = this.generate.bind(this);
+    this.startTimer = this.startTimer.bind(this);
+    this.stopTimer = this.stopTimer.bind(this);
+    this.tick = this.tick.bind(this);
   }
 
   // Select the given number of tanks, healers, and DPS from props
@@ -74,14 +78,18 @@ class Game extends Component {
         card: choose(this.props.cards),
         party: this.createParty(1, 1, 2),
         guessing: false,
+        timeToGuess: 0,
       });
     } else {
       this.setState({
         card: choose(this.props.cards),
         party: this.createParty(2, 2, 4),
         guessing: false,
+        timeToGuess: 0,
       });
     }
+
+    this.startTimer();
   }
 
   // Toggles between 4- and 8-man parties
@@ -101,6 +109,24 @@ class Game extends Component {
     }
   }
 
+  // Start and stop the timer
+  startTimer() {
+    if (!this.state.timing) {
+      this.setState({ timing: true });
+      this.guessTime = setInterval(() => this.tick(), 10);
+    }
+  }
+
+  stopTimer() {
+    this.setState({ timing: false });
+    clearInterval(this.guessTime);
+  }
+
+  // Ticks the time up
+  tick() {
+    this.setState({ timeToGuess: this.state.timeToGuess + 10 });
+  }
+
   // Checks if the given role is correct for the given card
   // Prioritizes DPS over support roles
   isRoleCorrect(role) {
@@ -113,6 +139,8 @@ class Game extends Component {
 
   // Handles updating the game state when an icon is clicked
   update(id, role) {
+    this.stopTimer();
+
     let correctnessArr = [...this.state.party];
     let scoreUpdate = this.state.score;
     let roundUpdate = this.state.round + 1;
@@ -122,7 +150,6 @@ class Game extends Component {
         correctnessArr[i].correctnessClass = "correct";
         scoreUpdate += 1;
       } else if (correctnessArr[i].id === id) {
-        console.log("wrong");
         correctnessArr[i].correctnessClass = "incorrect";
       } else if (this.isRoleCorrect(correctnessArr[i].role)) {
         correctnessArr[i].correctnessClass = "also-correct";
@@ -134,6 +161,7 @@ class Game extends Component {
       score: scoreUpdate,
       round: roundUpdate,
       guessing: true,
+      timing: false,
     });
 
     setTimeout(this.generate, 1500);
@@ -162,7 +190,7 @@ class Game extends Component {
             <Card name={this.state.card.name} src={this.state.card.icon} />
             <div className="Game-party">{party}</div>
           </div>
-          <Timer time={3} />
+          <Timer time={this.state.timeToGuess} />
         </div>
         <div className="Game-score-area">
           <div className="Game-description">
@@ -184,6 +212,14 @@ class Game extends Component {
         </div>
       </div>
     );
+  }
+
+  componentDidMount() {
+    this.startTimer();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.guessTime);
   }
 }
 
