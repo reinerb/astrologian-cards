@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/astrologian-cards/static/css/main.8078cf31.css",
-    "main.js": "/astrologian-cards/static/js/main.d6e01ecd.js",
+    "main.css": "/astrologian-cards/static/css/main.ef068807.css",
+    "main.js": "/astrologian-cards/static/js/main.6968e1b1.js",
     "static/media/war.png": "/astrologian-cards/static/media/war.34b7fd3ff2f08a02fe81.png",
     "static/media/sam.png": "/astrologian-cards/static/media/sam.39fb69b0839e18439391.png",
     "static/media/gnb.png": "/astrologian-cards/static/media/gnb.5086d22c6e30fb783c22.png",
@@ -28,11 +28,11 @@
     "static/media/balance.png": "/astrologian-cards/static/media/balance.079de13c343926dac8b0.png",
     "static/media/bole.png": "/astrologian-cards/static/media/bole.49ee02ccc469e3f9dbd1.png",
     "index.html": "/astrologian-cards/index.html",
-    "main.8078cf31.css.map": "/astrologian-cards/static/css/main.8078cf31.css.map",
-    "main.d6e01ecd.js.map": "/astrologian-cards/static/js/main.d6e01ecd.js.map"
+    "main.ef068807.css.map": "/astrologian-cards/static/css/main.ef068807.css.map",
+    "main.6968e1b1.js.map": "/astrologian-cards/static/js/main.6968e1b1.js.map"
   },
   "entrypoints": [
-    "static/css/main.8078cf31.css",
-    "static/js/main.d6e01ecd.js"
+    "static/css/main.ef068807.css",
+    "static/js/main.6968e1b1.js"
   ]
 }
